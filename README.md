@@ -109,6 +109,10 @@ python manage.py makemigrations
 ```python
 python manage.py migrate
 ```
+8. Находясь папке с файлом manage.py выполните команду:
+```python
+python load_data.py
+```
 
 **Скрины из базы данных Postgres :**
 
@@ -127,4 +131,5 @@ python manage.py migrate
 <img src="screens/bd_7.jpg" alt="img_6.png" width="500">
 
 <br>
+
 **Автор проекта: Артем Вахрушев.**
