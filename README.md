@@ -116,7 +116,7 @@ python load_data.py
 
 **Скрины из базы данных Postgres :**
 
-<img src="screens/bd_1.jpg" alt="img_6.png" width="200">
+<img src="screens/bd_1.jpg" alt="img_6.png" width="250">
 
 <img src="screens/bd_2.jpg" alt="img_6.png" width="500">
 
@@ -126,9 +126,9 @@ python load_data.py
 
 <img src="screens/bd_5.jpg" alt="img_6.png" width="500">
 
-<img src="screens/bd_6.jpg" alt="img_6.png" width="500">
+<img src="screens/bd_6.jpg" alt="img_6.png" width="300">
 
-<img src="screens/bd_7.jpg" alt="img_6.png" width="500">
+<img src="screens/bd_7.jpg" alt="img_6.png" width="250">
 
 <br>
 
