@@ -10,10 +10,10 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(BASE_DIR)
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project.settings')
 
-# Настраиваем среду выполнения Django
+
 django.setup()
 
-# Здесь импортируем модели Django после настройки
+
 from advertisement.models import (CityInfo,
                                   Details,
                                   Metrics,
