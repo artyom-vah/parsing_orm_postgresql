@@ -4,6 +4,7 @@ from .models import Billboard
 
 def load_data_to_db(file_path):
     df = pd.read_excel(file_path)
+    billboards = []
 
     for _, row in df.iterrows():
         billboard = Billboard(
@@ -31,11 +32,13 @@ def load_data_to_db(file_path):
             product_restrictions=row['Ограничения по продукту'],
             city_district=row['Городской Округ'],
             tech_requirements=row['Тех. требования'],
-            installation_price_with_vat=row['Монтаж. Прайс  с НДС'] if not pd.isna(
-                row['Монтаж. Прайс  с НДС']) else None,
-            reinstallation_price_with_vat=row['Переклейка. Прайс с НДС'] if not pd.isna(
-                row['Переклейка. Прайс с НДС']) else None,
+            installation_price_with_vat=row['Монтаж. Прайс  с НДС'] if not pd.isna(row['Монтаж. Прайс  с НДС']) else None,
+            reinstallation_price_with_vat=row['Переклейка. Прайс с НДС'] if not pd.isna(row['Переклейка. Прайс с НДС']) else None,
             software_resolution=row['Разрешение ПО'],
             note=row['Примечание'],
         )
-        billboard.save()
+        billboards.append(billboard)
+
+    # Массовая вставка объектов в базу данных
+    Billboard.objects.bulk_create(billboards)
+
