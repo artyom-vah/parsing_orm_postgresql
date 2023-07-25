@@ -17,6 +17,9 @@
 
 ### **Дополнительные библиотеки:**
 [![Psycopg2-Binary](https://img.shields.io/badge/Psycopg2--Binary-v2.9.1-blue)](https://pypi.org/project/psycopg2-binary/)
+[![Pandas Version](https://img.shields.io/badge/Pandas-1.3.0-blue.svg)](https://pandas.pydata.org/)
+
+Описание вашего проекта и другая полезная информация.
 
 [//]: # ([![django-allauth]&#40;https://img.shields.io/badge/django--allauth-0.54.0-blue?style=flat-square&#41;]&#40;https://django-allauth.readthedocs.io/en/latest/&#41; [![folium]&#40;https://img.shields.io/badge/folium-0.14-blue&#41;]&#40;https://python-visualization.github.io/folium/&#41;  [![django-smart-selects]&#40;https://img.shields.io/badge/geocoder-1.38.1-blue&#41;]&#40;https://pypi.org/project/geocoder/&#41; [![flake8]&#40;https://img.shields.io/badge/flake8-5.0.4-blue&#41;]&#40;https://pypi.org/project/flake8/5.0.4/&#41;)
 
@@ -37,7 +40,9 @@ python -m venv venv
 ```python
 source venv/Scripts/activate
 ```
+
 _или сразу так:_
+
 ```python
 python -m venv venv && . venv/Scripts/activate
 ```
