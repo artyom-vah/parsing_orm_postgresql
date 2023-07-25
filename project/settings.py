@@ -5,7 +5,8 @@ from dotenv import load_dotenv
 from pathlib import Path
 
 load_dotenv()
-.
+
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = "$dqm7s#kz7ycb0#d)5@5_w1qu)76ybcvpab)-^!%@91yxs*r2="
@@ -57,9 +58,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'project.wsgi.application'
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
 # настройку для sqlite3 оставил
 # DATABASES = {
 #     'default': {
@@ -90,7 +88,6 @@ DATABASES = {
     }
 }
 
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -106,7 +103,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -114,7 +110,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 STATIC_URL = 'static/'
 
