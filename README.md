@@ -11,7 +11,7 @@
 
 
 
-### **Стек:**
+## **Стек:**
 ![python version](https://img.shields.io/badge/Python-3.11-green) ![django version](https://img.shields.io/badge/Django-4.2.1-green)
 
 
@@ -23,7 +23,7 @@
 
 [//]: # ([![django-allauth]&#40;https://img.shields.io/badge/django--allauth-0.54.0-blue?style=flat-square&#41;]&#40;https://django-allauth.readthedocs.io/en/latest/&#41; [![folium]&#40;https://img.shields.io/badge/folium-0.14-blue&#41;]&#40;https://python-visualization.github.io/folium/&#41;  [![django-smart-selects]&#40;https://img.shields.io/badge/geocoder-1.38.1-blue&#41;]&#40;https://pypi.org/project/geocoder/&#41; [![flake8]&#40;https://img.shields.io/badge/flake8-5.0.4-blue&#41;]&#40;https://pypi.org/project/flake8/5.0.4/&#41;)
 
-### **Запуск проекта в dev-режиме**
+## **Запуск проекта в dev-режиме**
 Инструкция ориентирована на операционную систему Windows и утилиту git bash.<br/>
 ##### Для прочих инструментов используйте аналоги команд для вашего окружения.
 
