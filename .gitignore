@@ -150,3 +150,6 @@ static/
 posts/static/
 media/
 
+
+# Игнорировать файлы миграций во всех приложениях Django
+**/migrations/
