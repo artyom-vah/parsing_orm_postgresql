@@ -114,6 +114,16 @@ python manage.py migrate
 python load_data.py
 ```
 
+9. Если захотите очистить базу данных то выполните команду:
+```python
+python manage.py flush
+```
+_и повторно загрузите данные:_
+```python
+python load_data.py
+```
+
+
 **Скрины из базы данных Postgres :**
 
 <img src="screens/bd_1.jpg" alt="img_6.png" width="250">
