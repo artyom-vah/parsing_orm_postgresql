@@ -1,18 +1,18 @@
 import os
 import sys
 import pandas as pd
-import django
 
-from django.core.wsgi import get_wsgi_application
+import time
+from functools import wraps
+
+import django
 from django.db import transaction
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(BASE_DIR)
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project.settings')
 
-
 django.setup()
-
 
 from advertisement.models import (CityInfo,
                                   Details,
@@ -21,11 +21,24 @@ from advertisement.models import (CityInfo,
                                   Pricing,
                                   Software)
 
-application = get_wsgi_application()
+
+def timing_decorator(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        print(f"Подождите пока функция '{func.__name__}' загружает данные из файла 'Занятость города 2023.xlsx' в БД PostgreSQL ...")
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        execution_time = end_time - start_time
+        print(f"Функция {func.__name__} выполнилась за {execution_time:.2f} секунд. Данные успешно загружены!")
+        return result
+    return wrapper
 
 
-def load_data_to_db(file_path):
-    df = pd.read_excel(file_path)
+@timing_decorator
+def load_data_to_db(excel_file):
+    """Загружает данные из файла Ексель в БД PostgreSQL """
+    df = pd.read_excel(excel_file)
 
     # Используем списки для bulk_create
     city_info_list = []
@@ -35,7 +48,7 @@ def load_data_to_db(file_path):
     software_list = []
     note_list = []
 
-    for _, row in df.iterrows():
+    for index, row in df.iterrows():
         city_billboard_info = CityInfo(
             city=row['Город'],
             surface_type=row['Тип поверхности'],
@@ -92,14 +105,14 @@ def load_data_to_db(file_path):
 
     # Используем транзакцию для ускорения
     with transaction.atomic():
-        CityInfo.objects.bulk_create(city_info_list, batch_size=500)
-        Metrics.objects.bulk_create(metrics_list, batch_size=500)
-        Details.objects.bulk_create(details_list, batch_size=500)
-        Pricing.objects.bulk_create(pricing_list, batch_size=500)
-        Software.objects.bulk_create(software_list, batch_size=500)
-        Note.objects.bulk_create(note_list, batch_size=500)
+        CityInfo.objects.bulk_create(city_info_list, batch_size=10000)
+        Metrics.objects.bulk_create(metrics_list, batch_size=10000)
+        Details.objects.bulk_create(details_list, batch_size=10000)
+        Pricing.objects.bulk_create(pricing_list, batch_size=10000)
+        Software.objects.bulk_create(software_list, batch_size=10000)
+        Note.objects.bulk_create(note_list, batch_size=10000)
 
 
 if __name__ == "__main__":
-    file_path = os.path.join(BASE_DIR, "Занятость города 2023.xlsx")
-    load_data_to_db(file_path)
+    excel_file_path = os.path.join(BASE_DIR, "Занятость города 2023.xlsx")
+    load_data_to_db(excel_file_path)
