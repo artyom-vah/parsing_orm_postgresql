@@ -23,7 +23,7 @@
 
 
 ## **Схема(структура) базы данных:**
-<img src="screens/chema_db.jpg" alt="img_6.png" width="700">
+<img src="screens/chema_db.jpg" alt="img_6.png" width="800">
 
 ## **Запуск проекта в dev-режиме**
 Инструкция ориентирована на операционную систему Windows и утилиту git bash.<br/>
